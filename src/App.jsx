@@ -1,14 +1,14 @@
 import './App.css'
-import MovieCard from './components/MovieCard'
+import Home from './pages/Home'
 
 function App() {
 
   return (
       <>
-        <MovieCard movie={{title:"Jaimik",release_date:"18/09/2002"}}/>
+        <Home />
       </>
-  )
+  );
 }
 
 
-export default App
+export default App;
