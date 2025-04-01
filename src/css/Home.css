@@ -2,6 +2,8 @@
   padding: 2rem 0;
   width: 100%;
   box-sizing: border-box;
+  min-height: calc(100vh - 64px);
+  background-color: #1C1B24;
 }
 
 .search-form {
@@ -16,32 +18,51 @@
 .search-input {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #333;
-  color: white;
+  border: 1px solid #3B3A45;
+  border-radius: 8px;
+  background-color: #2B2A35;
+  color: #E5E5E5;
   font-size: 1rem;
+  transition: all 0.2s ease;
 }
 
 .search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #666;
+  border-color: #FB542B;
+  box-shadow: 0 0 0 2px rgba(251, 84, 43, 0.2);
+}
+
+.search-input::placeholder {
+  color: #A0A0A0;
 }
 
 .search-button {
   padding: 0.75rem 1.5rem;
-  background-color: #e50914;
-  color: white;
-  border-radius: 4px;
+  background-color: #FB542B;
+  color: #FFFFFF;
+  border-radius: 8px;
   font-weight: 500;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   white-space: nowrap;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .search-button:hover {
-  background-color: #f40612;
+  background-color: #FF2000;
+  transform: translateY(-1px);
 }
 
+.search-button:active {
+  transform: translateY(0);
+}
+
+.search-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(251, 84, 43, 0.2);
+}
 
 @media (max-width: 639px) {
   .home {
@@ -50,14 +71,55 @@
 
   .search-form {
     margin-bottom: 1rem;
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #A0A0A0;
+  font-size: 1.1rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: #FB542B;
+  font-size: 1.2rem;
+  gap: 1rem;
+}
+
+.loading::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 2px solid #FB542B;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

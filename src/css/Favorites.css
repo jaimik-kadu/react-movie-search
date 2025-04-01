@@ -2,37 +2,68 @@
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
+  min-height: calc(100vh - 64px);
+  background-color: #1C1B24;
 }
 
 .favorites h2 {
   margin-bottom: 2rem;
   text-align: center;
-  font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.favorites h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #FB542B;
+  border-radius: 2px;
 }
 
 .favorites-empty {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #2B2A35;
   border-radius: 12px;
   margin: 2rem auto;
   max-width: 600px;
+  border: 1px solid #3B3A45;
+  transition: all 0.3s ease;
+}
+
+.favorites-empty:hover {
+  border-color: #FB542B;
+  box-shadow: 0 8px 24px rgba(251, 84, 43, 0.1);
 }
 
 .favorites-empty h2 {
   margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #e50914;
+  font-size: 1.8rem;
+  color: #FB542B;
+  text-shadow: none;
 }
 
 .favorites-empty p {
-  color: #999;
-  font-size: 1.2rem;
+  color: #A0A0A0;
+  font-size: 1.1rem;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
+.favorites-empty .icon {
+  font-size: 3rem;
+  color: #FB542B;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
 
 /* Animation for new favorites being added */
 @keyframes fadeIn {
@@ -48,5 +79,48 @@
 
 .movies-grid > * {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.favorites-count {
+  color: #A0A0A0;
+  font-size: 1.1rem;
+}
+
+.favorites-count span {
+  color: #FB542B;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .favorites {
+    padding: 1rem;
+  }
+
+  .favorites h2 {
+    font-size: 1.8rem;
+  }
+
+  .favorites-empty {
+    padding: 3rem 1.5rem;
+  }
+
+  .favorites-empty h2 {
+    font-size: 1.5rem;
+  }
+
+  .favorites-empty p {
+    font-size: 1rem;
+  }
 }
 

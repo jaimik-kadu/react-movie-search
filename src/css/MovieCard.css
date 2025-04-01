@@ -1,16 +1,19 @@
 .movie-card {
   position: relative;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  background-color: #1a1a1a;
-  transition: transform 0.2s;
+  background-color: #2B2A35;
+  transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid #3B3A45;
 }
 
 .movie-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(251, 84, 43, 0.15);
+  border-color: #FB542B;
 }
 
 .movie-poster {
@@ -33,15 +36,15 @@
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.8)
+    rgba(27, 26, 35, 0.1),
+    rgba(27, 26, 35, 0.9)
   );
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .movie-card:hover .movie-overlay {
@@ -52,59 +55,79 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: white;
+  color: #E5E5E5;
   font-size: 1.5rem;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(43, 42, 53, 0.8);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid #3B3A45;
 }
 
 .favorite-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(251, 84, 43, 0.2);
+  border-color: #FB542B;
+  transform: scale(1.1);
 }
 
 .favorite-btn.active {
-  color: #ff4757;
+  color: #FB542B;
+  background-color: rgba(251, 84, 43, 0.2);
+  border-color: #FB542B;
 }
 
 .rating-select {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
+  background-color: rgba(43, 42, 53, 0.9);
+  color: #E5E5E5;
+  border: 1px solid #3B3A45;
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   margin-top: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.rating-select:hover {
+  border-color: #FB542B;
+}
+
+.rating-select:focus {
+  outline: none;
+  border-color: #FB542B;
+  box-shadow: 0 0 0 2px rgba(251, 84, 43, 0.2);
 }
 
 .movie-info {
-  padding: 1rem;
+  padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .movie-info h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 .movie-info p {
-  color: #999;
+  color: #A0A0A0;
   font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .user-rating {
-  color: #ffd700;
+  color: #FB542B;
   font-size: 0.9rem;
   margin-top: auto;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -113,7 +136,7 @@
   }
 
   .movie-info {
-    padding: 0.75rem;
+    padding: 1rem;
   }
 
   .favorite-btn {
